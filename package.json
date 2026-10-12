@@ -1,0 +1,12 @@
+{
+  "name": "2048",
+  "private": true,
+  "scripts": {
+    "build:web": "go tool mygo build -platform web && cp web/_headers build/web/",
+    "preview": "bun run build:web && wrangler dev",
+    "deploy": "bun run build:web && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.143.1"
+  }
+}

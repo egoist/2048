@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "2048",
+  "compatibility_date": "2026-10-03",
+  // The WebAssembly build of the game, a static site: `bun run build:web`.
+  "assets": {
+    "directory": "./build/web"
+  },
+  "routes": [
+    { "pattern": "2048.egoist.dev", "custom_domain": true }
+  ]
+}

@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 	"math/rand/v2"
-	"path/filepath"
 	"strconv"
 	"time"
 
@@ -449,10 +448,8 @@ func abs(x float32) float32 {
 }
 
 func main() {
-	var st *store
-	if dir, err := mygo.App.Path(mygo.PathUserData); err == nil {
-		st = &store{path: filepath.Join(dir, "state.json")}
-	} else {
+	st, err := openStore()
+	if err != nil {
 		log.Printf("no place to save the game: %v", err)
 	}
 	a := newApp(st, rand.New(rand.NewPCG(rand.Uint64(), rand.Uint64())))
